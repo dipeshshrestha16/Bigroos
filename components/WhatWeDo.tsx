@@ -90,13 +90,8 @@ export default function WhatWeDo() {
             <motion.div
               key={title}
               variants={cardVariant}
-              className="group relative bg-slate-800/50 border border-slate-700/60 rounded-2xl p-7 hover:border-brand-primary/40 hover:bg-slate-800/80 transition-all duration-300 hover:scale-[1.02] cursor-default overflow-hidden"
+              className="group relative bg-slate-800/50 border border-slate-700/60 border-t-2 border-t-brand-primary rounded-2xl p-7 hover:border-brand-primary/60 hover:bg-slate-800/80 transition-all duration-300 hover:scale-[1.02] cursor-default overflow-hidden"
             >
-              {/* Top accent bar */}
-              <div
-                className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ backgroundColor: accent }}
-              />
 
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"

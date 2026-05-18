@@ -5,8 +5,8 @@ import Hero from '@/components/Hero';
 import WhoWeHelp from '@/components/WhoWeHelp';
 import WhatWeDo from '@/components/WhatWeDo';
 import WhyNeedWebsite from '@/components/WhyNeedWebsite';
-import Packages from '@/components/Packages';
 import Portfolio from '@/components/Portfolio';
+import Pricing from '@/components/Pricing';
 import HowItWorks from '@/components/HowItWorks';
 import WhyChooseUs from '@/components/WhyChooseUs';
 import BeforeAfter from '@/components/BeforeAfter';
@@ -23,8 +23,8 @@ export default function Home() {
       <WhoWeHelp />
       <WhatWeDo />
       <WhyNeedWebsite />
-      <Packages />
       <Portfolio />
+      <Pricing />
       <HowItWorks />
       <WhyChooseUs />
       <BeforeAfter />

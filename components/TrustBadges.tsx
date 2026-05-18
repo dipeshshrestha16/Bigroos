@@ -82,7 +82,7 @@ export default function TrustBadges() {
                 hidden: { opacity: 0, y: 24 },
                 show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
               }}
-              className="group flex flex-col items-center text-center gap-3 bg-slate-800/50 border border-slate-700/60 rounded-2xl px-4 py-6 hover:border-opacity-80 hover:scale-[1.05] transition-all duration-300 cursor-default"
+              className="group flex flex-col items-center text-center gap-3 bg-slate-800/50 border border-slate-700/60 border-t-2 border-t-brand-primary rounded-2xl px-4 py-6 hover:border-brand-primary/60 hover:scale-[1.05] transition-all duration-300 cursor-default"
               style={{
                 '--badge-color': color,
               } as React.CSSProperties}

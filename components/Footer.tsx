@@ -1,6 +1,6 @@
 'use client';
 
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Who We Help', href: '#who-we-help' },
@@ -119,20 +119,6 @@ export default function Footer() {
                     className="text-slate-300 hover:text-brand-primary text-sm transition-colors"
                   >
                     hello@bigroostech.com.au
-                  </a>
-                </div>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="w-8 h-8 rounded-lg bg-brand-primary/10 flex items-center justify-center shrink-0">
-                  <Phone size={14} className="text-brand-primary" />
-                </div>
-                <div>
-                  <p className="text-slate-500 text-[11px] uppercase tracking-wider mb-0.5">Phone</p>
-                  <a
-                    href="tel:+61400000000"
-                    className="text-slate-300 hover:text-brand-primary text-sm transition-colors"
-                  >
-                    +61 4XX XXX XXX
                   </a>
                 </div>
               </li>

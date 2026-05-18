@@ -75,7 +75,7 @@ export default function HowItWorks() {
             >
               {/* Step circle */}
               <div className="relative mb-6 z-10">
-                <div className="w-20 h-20 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center group-hover:border-brand-primary/40 transition-colors">
+                <div className="w-20 h-20 rounded-2xl bg-slate-800 border border-slate-700 border-t-2 border-t-brand-primary flex items-center justify-center transition-colors">
                   <Icon size={28} className="text-brand-primary" strokeWidth={1.5} />
                 </div>
                 {/* Number badge */}

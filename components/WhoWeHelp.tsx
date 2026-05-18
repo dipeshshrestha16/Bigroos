@@ -1,40 +1,25 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import {
-  Droplets, Zap, PaintBucket, Hammer, Home, Sparkles,
-  Leaf, Building2, Car, Bug, Wrench, Wind,
-} from 'lucide-react';
+import { Droplets, Zap, PaintBucket, Hammer, Building2 } from 'lucide-react';
 
 const trades = [
-  { label: 'Plumbers', icon: Droplets, color: 'bg-blue-500/10 text-blue-400 border-blue-500/20' },
-  { label: 'Electricians', icon: Zap, color: 'bg-yellow-400/10 text-yellow-400 border-yellow-400/20' },
-  { label: 'Painters', icon: PaintBucket, color: 'bg-orange-400/10 text-orange-400 border-orange-400/20' },
-  { label: 'Carpenters', icon: Hammer, color: 'bg-amber-600/10 text-amber-500 border-amber-500/20' },
-  { label: 'Roofers', icon: Home, color: 'bg-slate-400/10 text-slate-400 border-slate-400/20' },
-  { label: 'Cleaners', icon: Sparkles, color: 'bg-teal-400/10 text-teal-400 border-teal-400/20' },
-  { label: 'Landscapers', icon: Leaf, color: 'bg-green-500/10 text-green-400 border-green-500/20' },
-  { label: 'Builders', icon: Building2, color: 'bg-stone-400/10 text-stone-400 border-stone-400/20' },
-  { label: 'Mechanics', icon: Car, color: 'bg-red-400/10 text-red-400 border-red-400/20' },
-  { label: 'Pest Control', icon: Bug, color: 'bg-lime-500/10 text-lime-400 border-lime-500/20' },
-  { label: 'Handymen', icon: Wrench, color: 'bg-indigo-400/10 text-indigo-400 border-indigo-400/20' },
-  { label: 'HVAC Technicians', icon: Wind, color: 'bg-cyan-400/10 text-brand-primary border-brand-primary/20' },
+  { label: 'Plumbers',     tradeKey: 'Plumber',      icon: Droplets,    color: 'text-blue-500   bg-blue-500/10   border-blue-500/20'   },
+  { label: 'Electricians', tradeKey: 'Electrician',  icon: Zap,         color: 'text-yellow-500 bg-yellow-400/10 border-yellow-400/20' },
+  { label: 'Painters',     tradeKey: 'Painter',      icon: PaintBucket, color: 'text-orange-500 bg-orange-400/10 border-orange-400/20' },
+  { label: 'Carpenters',   tradeKey: 'Carpenter',    icon: Hammer,      color: 'text-amber-600  bg-amber-600/10  border-amber-500/20'  },
+  { label: 'Builders',     tradeKey: 'Builder',      icon: Building2,   color: 'text-violet-500 bg-violet-500/10 border-violet-500/20' },
 ];
 
-const container = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.07 } },
-};
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
-};
+function selectTrade(tradeKey: string) {
+  window.dispatchEvent(new CustomEvent('selectTrade', { detail: { trade: tradeKey } }));
+  document.getElementById('portfolio')?.scrollIntoView({ behavior: 'smooth' });
+}
 
 export default function WhoWeHelp() {
   return (
     <section id="who-we-help" className="py-20 lg:py-28 bg-brand-light-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -56,50 +41,43 @@ export default function WhoWeHelp() {
           </p>
         </motion.div>
 
-        {/* Trade grid */}
+        {/* Single row of 5 — clickable */}
         <motion.div
-          variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4"
+          transition={{ staggerChildren: 0.08 }}
+          className="grid grid-cols-5 gap-4 max-w-3xl mx-auto"
         >
-          {trades.map(({ label, icon: Icon, color }) => (
-            <motion.div
+          {trades.map(({ label, tradeKey, icon: Icon, color }) => (
+            <motion.button
               key={label}
-              variants={item}
-              className={`group flex flex-col items-center gap-3 p-5 rounded-2xl border bg-white hover:shadow-lg hover:scale-[1.04] transition-all duration-300 cursor-default ${color}`}
+              variants={{
+                hidden: { opacity: 0, y: 20 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+              }}
+              onClick={() => selectTrade(tradeKey)}
+              className={`flex flex-col items-center gap-3 p-5 rounded-2xl border bg-white hover:shadow-xl hover:scale-[1.06] active:scale-[0.98] transition-all duration-200 cursor-pointer ${color}`}
             >
-              <div
-                className={`w-12 h-12 rounded-xl flex items-center justify-center border ${color}`}
-              >
+              <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${color}`}>
                 <Icon size={22} strokeWidth={1.8} />
               </div>
               <span className="text-brand-dark-text text-sm font-semibold text-center leading-tight">
                 {label}
               </span>
-            </motion.div>
+            </motion.button>
           ))}
         </motion.div>
 
-        {/* CTA nudge */}
-        <motion.div
+        <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center mt-12"
+          transition={{ delay: 0.5 }}
+          className="text-center text-brand-gray-text text-sm mt-8"
         >
-          <p className="text-brand-gray-text text-sm mb-4">
-            Don&apos;t see your trade? We build websites for all service businesses.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 bg-brand-primary hover:bg-[#12b0cf] text-brand-dark-bg font-bold px-6 py-3 rounded-xl text-sm transition-all duration-200 hover:scale-[1.03] shadow-md shadow-brand-primary/25"
-          >
-            Get in Touch
-          </a>
-        </motion.div>
+          Click any trade to see a website example ↓
+        </motion.p>
       </div>
     </section>
   );

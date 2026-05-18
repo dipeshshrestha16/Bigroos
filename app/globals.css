@@ -5,11 +5,12 @@
 @tailwind utilities;
 
 :root {
-  --brand-primary:   #19C2E3;
-  --brand-secondary: #F4C542;
+  --brand-primary:   #00BFBF;
+  --brand-secondary: #F5C800;
   --brand-dark-text: #111111;
-  --brand-light-bg:  #F8FAFC;
-  --brand-dark-bg:   #0F172A;
+  --brand-light-bg:  #F0F9FA;
+  --brand-dark-bg:   #0C1C2C;
+  --brand-dark-card: #0F2030;
   --brand-gray-text: #64748B;
   --brand-border:    #E2E8F0;
 }
@@ -34,7 +35,21 @@ body {
   .text-balance { text-wrap: balance; }
 
   .glow-primary {
-    box-shadow: 0 0 30px rgba(25, 194, 227, 0.3);
+    box-shadow: 0 0 30px rgba(0, 191, 191, 0.3);
+  }
+
+  /* Form validation */
+  input:invalid:not(:placeholder-shown),
+  textarea:invalid:not(:placeholder-shown),
+  select:invalid:not(:placeholder-shown) {
+    border-color: #EF4444 !important;
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.15) !important;
+  }
+
+  /* Native <option> must always be dark text on white — browsers ignore CSS color inheritance */
+  option {
+    background-color: #ffffff;
+    color: #111111;
   }
 
   .bg-grid-pattern {

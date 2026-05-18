@@ -10,11 +10,12 @@ const config: Config = {
     extend: {
       colors: {
         brand: {
-          primary:    '#19C2E3',   // Primary
-          secondary:  '#F4C542',   // Secondary
+          primary:    '#00BFBF',   // Primary
+          secondary:  '#F5C800',   // Secondary
           'dark-text': '#111111',  // Dark Text
-          'light-bg':  '#F8FAFC',  // Light Background
-          'dark-bg':   '#0F172A',  // Dark Background
+          'light-bg':  '#F0F9FA',  // Light Background
+          'dark-bg':   '#0C1C2C',  // Dark Background
+          'dark-card': '#0F2030',  // Dark Card
           'gray-text': '#64748B',  // Gray Text
           border:      '#E2E8F0',  // Border
         },
@@ -26,8 +27,8 @@ const config: Config = {
       },
       keyframes: {
         'pulse-glow': {
-          '0%,100%': { boxShadow: '0 0 0 0 rgba(25,194,227,0.45)' },
-          '50%': { boxShadow: '0 0 0 14px rgba(25,194,227,0)' },
+          '0%,100%': { boxShadow: '0 0 0 0 rgba(0,191,191,0.45)' },
+          '50%': { boxShadow: '0 0 0 14px rgba(0,191,191,0)' },
         },
         'fade-up': {
           '0%': { opacity: '0', transform: 'translateY(24px)' },
