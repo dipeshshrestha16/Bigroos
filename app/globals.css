@@ -38,6 +38,20 @@ body {
     box-shadow: 0 0 30px rgba(0, 191, 191, 0.3);
   }
 
+  .whatsapp-chat-button {
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    box-shadow: 0 0 16px rgba(37, 211, 102, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  }
+
+  @keyframes whatsapp-glow {
+    0%, 100% {
+      box-shadow: 0 0 14px rgba(37, 211, 102, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+    }
+    50% {
+      box-shadow: 0 0 26px rgba(37, 211, 102, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+  }
+
   /* Form validation */
   input:invalid:not(:placeholder-shown),
   textarea:invalid:not(:placeholder-shown),

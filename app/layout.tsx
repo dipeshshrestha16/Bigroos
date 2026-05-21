@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -105,13 +104,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         {children}
-        <Script
-          id="crisp-chat"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `window.$crisp=[];window.CRISP_WEBSITE_ID="2e81e297-8884-4582-b463-e731f326b4b3";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();`,
-          }}
-        />
+        <a
+          href="https://wa.me/97798xxxxxxxx"
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label="Open WhatsApp chat"
+          className="fixed bottom-6 right-6 z-50 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white transition-transform duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-black whatsapp-chat-button animate-pulse-glow"
+        >
+          <img
+            src="/WhatsApp_icon.png"
+            alt="WhatsApp"
+            className="h-8 w-8"
+          />
+        </a>
       </body>
     </html>
   );
