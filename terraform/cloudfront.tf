@@ -65,6 +65,13 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
     }
   }
 
+  aliases = [
+    "bigroostech.com.au",
+    "www.bigroostech.com",
+    "www.bigroostech.com.au",
+    "bigroostech.com"
+  ]
+
   price_class = "PriceClass_100" # Use only North America and Europe for lowest cost
 
   restrictions {
@@ -74,7 +81,9 @@ resource "aws_cloudfront_distribution" "s3_distribution" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn      = "arn:aws:acm:us-east-1:789924422788:certificate/3cb735eb-506a-41a3-9b88-0e9c6421febc"
+    ssl_support_method       = "sni-only"
+    minimum_protocol_version = "TLSv1.2_2021"
   }
 
   tags = {
