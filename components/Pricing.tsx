@@ -108,13 +108,6 @@ export default function Pricing() {
                 </div>
               )}
 
-              {/* Top accent bar */}
-              <div
-                className={`absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl ${
-                  tier.popular ? 'bg-brand-primary' : 'bg-white/10'
-                }`}
-              />
-
               <div className="mb-6 mt-2">
                 <h3 className="text-white font-black text-xl mb-1">{tier.name}</h3>
                 <p className="text-white/50 text-sm leading-snug">{tier.tagline}</p>

@@ -41,13 +41,13 @@ export default function WhoWeHelp() {
           </p>
         </motion.div>
 
-        {/* Single row of 5 — clickable */}
+        {/* Responsive grid — 3 cols on mobile, 5 on sm+ */}
         <motion.div
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           transition={{ staggerChildren: 0.08 }}
-          className="grid grid-cols-5 gap-4 max-w-3xl mx-auto"
+          className="grid grid-cols-3 sm:grid-cols-5 gap-3 sm:gap-4 max-w-3xl mx-auto"
         >
           {trades.map(({ label, tradeKey, icon: Icon, color }) => (
             <motion.button
@@ -57,12 +57,12 @@ export default function WhoWeHelp() {
                 show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
               }}
               onClick={() => selectTrade(tradeKey)}
-              className={`flex flex-col items-center gap-3 p-5 rounded-2xl border bg-white hover:shadow-xl hover:scale-[1.06] active:scale-[0.98] transition-all duration-200 cursor-pointer ${color}`}
+              className={`flex flex-col items-center gap-2 sm:gap-3 p-3 sm:p-5 rounded-2xl border bg-white hover:shadow-xl hover:scale-[1.06] active:scale-[0.98] transition-all duration-200 cursor-pointer ${color}`}
             >
-              <div className={`w-12 h-12 rounded-xl flex items-center justify-center border ${color}`}>
-                <Icon size={22} strokeWidth={1.8} />
+              <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center border ${color}`}>
+                <Icon size={20} strokeWidth={1.8} />
               </div>
-              <span className="text-brand-dark-text text-sm font-semibold text-center leading-tight">
+              <span className="text-brand-dark-text text-xs sm:text-sm font-semibold text-center leading-tight">
                 {label}
               </span>
             </motion.button>
