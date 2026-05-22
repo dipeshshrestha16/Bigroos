@@ -26,6 +26,7 @@ interface PortfolioItem {
   heroBg: string;
   accentColor: string;
   urlSlug: string;
+  liveUrl?: string;
 }
 
 const portfolioItems: PortfolioItem[] = [
@@ -37,6 +38,7 @@ const portfolioItems: PortfolioItem[] = [
     heroBg: '#0e2240',
     accentColor: '#19C2E3',
     urlSlug: 'sydneyelite-plumbing',
+    liveUrl: 'https://plumsite.onrender.com',
   },
   {
     trade: 'Electrician',
@@ -46,6 +48,7 @@ const portfolioItems: PortfolioItem[] = [
     heroBg: '#1a1a2e',
     accentColor: '#F4C542',
     urlSlug: 'metro-electrical',
+    liveUrl: 'https://eletrisite.onrender.com',
   },
   {
     trade: 'Painter',
@@ -55,6 +58,7 @@ const portfolioItems: PortfolioItem[] = [
     heroBg: '#3d1a00',
     accentColor: '#f97316',
     urlSlug: 'premium-painters',
+    liveUrl: 'https://painterender.com',
   },
   {
     trade: 'Carpenter',
@@ -64,6 +68,7 @@ const portfolioItems: PortfolioItem[] = [
     heroBg: '#1c0f05',
     accentColor: '#a16207',
     urlSlug: 'craft-carpentry',
+    liveUrl: 'https://carpentry-18qx.onrender.com',
   },
   {
     trade: 'Builder',
@@ -262,7 +267,9 @@ export default function Portfolio() {
                   {activeItem.description}
                 </p>
                 <a
-                  href="#contact"
+                  href={activeItem.liveUrl ?? '#contact'}
+                  target={activeItem.liveUrl ? '_blank' : undefined}
+                  rel={activeItem.liveUrl ? 'noopener noreferrer' : undefined}
                   className="inline-flex items-center gap-2 font-semibold text-sm transition-all duration-200 hover:gap-3"
                   style={{ color: activeItem.accentColor }}
                 >
