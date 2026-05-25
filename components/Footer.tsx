@@ -127,10 +127,10 @@ export default function Footer() {
                 <div>
                   <p className="text-slate-500 text-[11px] uppercase tracking-wider mb-0.5">Email</p>
                   <a
-                    href="mailto:hello@bigroostech.com.au"
+                    href="mailto:reachout@bigroostech.com"
                     className="text-slate-300 hover:text-brand-primary text-sm transition-colors"
                   >
-                    hello@bigroostech.com.au
+                    reachout@bigroostech.com
                   </a>
                 </div>
               </li>

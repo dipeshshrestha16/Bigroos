@@ -95,6 +95,7 @@ export default function ContactCTA() {
   const [errors, setErrors] = useState<Partial<Record<FieldKey, string>>>({});
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -128,9 +129,34 @@ export default function ContactCTA() {
     if (Object.values(allErrors).some(Boolean)) return;
 
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSubmitted(true);
+    setSubmitError('');
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '74ad6b00-fa6b-449f-9a13-b888381754f8',
+          fullName: form.fullName,
+          businessName: form.businessName,
+          businessType: form.businessType,
+          email: form.email,
+          phone: form.phone,
+          currentWebsite: form.currentWebsite,
+          websiteType: form.websiteType,
+          message: form.message,
+        }),
+      });
+      const data = await res.json();
+      console.log('Web3Forms response:', data);
+      if (!res.ok || !data.success) throw new Error(data.message ?? 'Form error');
+      setSubmitted(true);
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Unknown error';
+      console.error('Submit error:', msg);
+      setSubmitError(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -177,7 +203,7 @@ export default function ContactCTA() {
                 to discuss your website project.
               </p>
               <button
-                onClick={() => { setSubmitted(false); setForm(initialForm); setTouched({}); setErrors({}); }}
+                onClick={() => { setSubmitted(false); setForm(initialForm); setTouched({}); setErrors({}); setSubmitError(''); }}
                 className="mt-6 text-brand-primary text-sm font-semibold hover:underline"
               >
                 Submit another enquiry
@@ -264,6 +290,13 @@ export default function ContactCTA() {
                   className={`${fieldClass(!!(touched.message && errors.message))} resize-none`}
                 />
               </Field>
+
+              {submitError && (
+                <p className="flex items-center gap-1.5 text-red-400 text-sm bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3">
+                  <AlertCircle size={16} strokeWidth={2.5} />
+                  {submitError}
+                </p>
+              )}
 
               <button
                 type="submit"
