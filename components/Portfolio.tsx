@@ -58,7 +58,7 @@ const portfolioItems: PortfolioItem[] = [
     heroBg: '#3d1a00',
     accentColor: '#f97316',
     urlSlug: 'premium-painters',
-    liveUrl: 'https://painterender.com',
+    liveUrl: 'https://paintersite.onrender.com/',
   },
   {
     trade: 'Carpenter',
