@@ -1,18 +1,22 @@
+import dynamic from 'next/dynamic';
 
+// Above-fold — loaded immediately
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
 import WhoWeHelp from '@/components/WhoWeHelp';
-import WhatWeDo from '@/components/WhatWeDo';
-import WhyNeedWebsite from '@/components/WhyNeedWebsite';
-import Portfolio from '@/components/Portfolio';
-import Pricing from '@/components/Pricing';
-import HowItWorks from '@/components/HowItWorks';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import BeforeAfter from '@/components/BeforeAfter';
-import TrustBadges from '@/components/TrustBadges';
-import FAQ from '@/components/FAQ';
-import ContactCTA from '@/components/ContactCTA';
-import Footer from '@/components/Footer';
+
+// Below-fold — JS split into separate chunks, HTML still pre-rendered
+const WhatWeDo       = dynamic(() => import('@/components/WhatWeDo'));
+const WhyNeedWebsite = dynamic(() => import('@/components/WhyNeedWebsite'));
+const Portfolio      = dynamic(() => import('@/components/Portfolio'));
+const Pricing        = dynamic(() => import('@/components/Pricing'));
+const HowItWorks     = dynamic(() => import('@/components/HowItWorks'));
+const WhyChooseUs    = dynamic(() => import('@/components/WhyChooseUs'));
+const BeforeAfter    = dynamic(() => import('@/components/BeforeAfter'));
+const TrustBadges    = dynamic(() => import('@/components/TrustBadges'));
+const FAQ            = dynamic(() => import('@/components/FAQ'));
+const ContactCTA     = dynamic(() => import('@/components/ContactCTA'));
+const Footer         = dynamic(() => import('@/components/Footer'));
 
 export default function Home() {
   return (
