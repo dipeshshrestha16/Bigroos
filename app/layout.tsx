@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     description: 'We build modern, fast websites for trade businesses in Australia.',
     images: ['/og-image.png'],
   },
+  icons: {
+    icon: '/logo.png',
+    shortcut: '/logo.png',
+    apple: '/logo.png',
+  },
 };
 
 const localBusinessSchema = {
