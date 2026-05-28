@@ -15,11 +15,11 @@ export const metadata: Metadata = {
     'We build modern, fast websites for trade businesses in Australia. Plumbers, electricians, painters, builders and more.',
   keywords:
     'website design Australia, trade business website, plumber website, electrician website, builder website',
-  metadataBase: new URL('https://bigroostech.com.au'),
+  metadataBase: new URL('https://bigroostech.com'),
   openGraph: {
     title: 'Bigroos Tech Australia',
     description: 'We build modern, fast websites for trade businesses in Australia.',
-    url: 'https://bigroostech.com.au',
+    url: 'https://bigroostech.com',
     type: 'website',
     images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Bigroos Tech Australia' }],
   },
@@ -41,7 +41,7 @@ const localBusinessSchema = {
   '@type': 'LocalBusiness',
   name: 'Bigroos Tech Australia',
   description: 'Professional websites for trade and service businesses in Australia.',
-  url: 'https://bigroostech.com.au',
+  url: 'https://bigroostech.com',
   areaServed: 'AU',
   serviceType: 'Web Design',
   sameAs: [],
