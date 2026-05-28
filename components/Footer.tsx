@@ -1,6 +1,6 @@
 'use client';
 
-import { Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import { Mail, MapPin, Facebook, Instagram } from 'lucide-react';
 
 const WhatsAppIcon = ({ size = 15 }: { size?: number }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -57,13 +57,14 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-3">
               {[
-                { icon: Facebook, label: 'Facebook' },
-                { icon: Instagram, label: 'Instagram' },
-                { icon: Linkedin, label: 'LinkedIn' },
-              ].map(({ icon: Icon, label }) => (
+                { icon: Facebook, label: 'Facebook', href: 'https://www.facebook.com/p/Bigroostech-61559916611062/' },
+                { icon: Instagram, label: 'Instagram', href: 'https://www.instagram.com/bigroostech/' },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer noopener"
                   aria-label={label}
                   className="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-slate-400 hover:text-brand-primary hover:border-brand-primary/40 transition-all duration-200"
                 >
